@@ -1,0 +1,1 @@
+	 2tsXùhrmodel/card.ts
