@@ -1,8 +1,8 @@
 ---
 
-# 🚀 Tutorial: Installing and Analyzing Code with SonarCloud from the Ubuntu Terminal
+# 🚀 Tutorial: Installation and Code Analysis with SonarQube Cloud from the Ubuntu Terminal
 
-This tutorial will guide you step by step on how to install and analyze a project using **SonarCloud** via the terminal and the SonarScanner.
+This tutorial will guide you step by step on how to install and analyze a project using **SonarQube Cloud** via the terminal and the SonarScanner.
 
 ---
 
@@ -60,17 +60,16 @@ From the root of your project, run:
 sonar-scanner
 ```
 
-Once finished, a new project will appear in SonarCloud with the results.
+Once finished, a new project will appear in SonarQube Cloud with the results.
 
 ---
 
 ## ✅ Additional Tips
 
 - Use `sonar.exclusions` to avoid analyzing irrelevant folders (HTML, images, documentation, etc.).
-- Consider adding SonarCloud to GitHub Actions to automate the analysis on every push.
 
 ---
 
-🎉 That’s it! You’ve successfully configured and run your first analysis with SonarCloud.
+🎉 That’s it! You’ve successfully configured and run your first analysis with SonarQube Cloud.
 
 ---
