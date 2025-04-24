@@ -1,5 +1,3 @@
-Claro, Guillermo. Aquí tienes el tutorial completo traducido al inglés y adaptado para que sea claro y profesional:
-
 ---
 
 # 🚀 Tutorial: Installing and Analyzing Code with SonarCloud from the Ubuntu Terminal
