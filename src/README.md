@@ -1,12 +1,16 @@
-# 🚀 Tutorial: Instalacion y Análisis de código con SonarQube Cloud desde la terminal ubuntu
-
-Este tutorial te guiará paso a paso para instalar y analizar un proyecto con **SonarQube Cloud** usando la terminal y el escáner SonarScanner.
+Claro, Guillermo. Aquí tienes el tutorial completo traducido al inglés y adaptado para que sea claro y profesional:
 
 ---
 
-## 📦 Paso 1: Instalar SonarScanner
+# 🚀 Tutorial: Installing and Analyzing Code with SonarCloud from the Ubuntu Terminal
 
-### En Linux (Ubuntu/WSL):
+This tutorial will guide you step by step on how to install and analyze a project using **SonarCloud** via the terminal and the SonarScanner.
+
+---
+
+## 📦 Step 1: Install SonarScanner
+
+### On Linux (Ubuntu/WSL):
 
 ```bash
 cd ~
@@ -17,7 +21,7 @@ echo 'export PATH="$HOME/sonar-scanner/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
 ```
 
-Verifica la instalación:
+Verify the installation:
 
 ```bash
 sonar-scanner -v
@@ -25,21 +29,21 @@ sonar-scanner -v
 
 ---
 
-## 📄 Paso 2: Crear el archivo `sonar-project.properties`
+## 📄 Step 2: Create the `sonar-project.properties` file
 
-Ubícate en la raíz del proyecto y crea el archivo:
+Go to the root of your project and create the file:
 
 ```bash
 vim sonar-project.properties
 ```
 
-Ejemplo de contenido adaptado para un proyecto TypeScript (IMPORTANTE: sustituir valores de las variables por los de tu proyecto):
+Example content for a TypeScript project (IMPORTANT: replace values with your actual project details):
 
 ```ini
-sonar.projectKey=mi-organizacion_mi-proyecto
-sonar.organization=mi-organizacion
+sonar.projectKey=my-org_my-project
+sonar.organization=my-org
 sonar.host.url=https://sonarcloud.io
-sonar.token=mi_token_generado
+sonar.token=my_generated_token
 
 sonar.sources=src/
 sonar.exclusions=**/docs/**, **/www/img/**, **/*.html, **/*.css, **/*.png
@@ -50,23 +54,25 @@ sonar.sourceEncoding=UTF-8
 
 ---
 
-## 🚀 Paso 4: Ejecutar el análisis
+## 🚀 Step 3: Run the analysis
 
-Desde la raíz del proyecto, ejecuta:
+From the root of your project, run:
 
 ```bash
 sonar-scanner
 ```
 
-Al finalizar, aparecerá el nuevo proyecto en SonarQube Cloud.
+Once finished, a new project will appear in SonarCloud with the results.
 
 ---
 
-## ✅ Consejos adicionales
+## ✅ Additional Tips
 
-- Usa `sonar.exclusions` para evitar analizar carpetas irrelevantes (HTML, imágenes, documentación...).
-- Añadir SonarCloud a GitHub Actions para automatizar el análisis.
+- Use `sonar.exclusions` to avoid analyzing irrelevant folders (HTML, images, documentation, etc.).
+- Consider adding SonarCloud to GitHub Actions to automate the analysis on every push.
 
 ---
 
-¡Listo! Has configurado y ejecutado tu primer análisis con SonarCloud. 🎉
+🎉 That’s it! You’ve successfully configured and run your first analysis with SonarCloud.
+
+---
