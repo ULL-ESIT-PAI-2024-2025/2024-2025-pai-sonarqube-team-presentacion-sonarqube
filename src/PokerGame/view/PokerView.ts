@@ -12,9 +12,9 @@
 import { PokerHand } from "../model/poker-hand.js";
 
 export class PokerView {
-  private hand1Container: HTMLElement;
-  private hand2Container: HTMLElement;
-  private resultContainer: HTMLElement;
+  private readonly hand1Container: HTMLElement;
+  private readonly hand2Container: HTMLElement;
+  private readonly resultContainer: HTMLElement;
 
   constructor(hand1Id: string, hand2Id: string, resultId: string) {
     this.hand1Container = document.getElementById(hand1Id)!;

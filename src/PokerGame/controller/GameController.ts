@@ -15,8 +15,8 @@ import { PokerGame } from '../model/poker-game';
 import { PokerView } from '../view/PokerView';
 
 export class GameController {
-  private game: PokerGame;
-  private view: PokerView;
+  private readonly game: PokerGame;
+  private readonly view: PokerView;
 
   /**
    * Constructor del controlador.

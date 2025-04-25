@@ -13,9 +13,9 @@ import { PokerHand } from './poker-hand';
 import { Deck } from './deck';
 
 export class PokerGame {
-  private deck: Deck;
-  private hand1: PokerHand;
-  private hand2: PokerHand;
+  private readonly deck: Deck;
+  private readonly hand1: PokerHand;
+  private readonly hand2: PokerHand;
 
   /**
    * Constructor de la clase PokerGame.
@@ -67,7 +67,8 @@ export class PokerGame {
     if (size1 > 0 && size2 === 0) return 1;
     if (size2 > 0 && size1 === 0) return 2;
     const result = this.hand1.compareWith(this.hand2);
-    return result === 1 ? 1 : result === -1 ? 2 : 0;
+    let validResult: number = result === -1 ? 2 : 0;
+    return result === 1 ? 1 : validResult;
   }
 
   /**

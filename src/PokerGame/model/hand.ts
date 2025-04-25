@@ -10,7 +10,6 @@
  */
 
 import { Card } from './card';
-import { Deck } from './deck';
 
 /**
  * Clase que representa una mano genérica de cartas.
@@ -52,20 +51,6 @@ export class Hand {
    */
   public popCard(): Card | undefined {
     return this.cards.pop();
-  }
-
-  /**
-   * Reparte un número dado de cartas desde un mazo a esta mano.
-   * @param {Deck} deck - Mazo del que se reparten las cartas.
-   * @param {number} numCards - Número de cartas a repartir.
-   */
-  public moveCardsFromDeck(deck: Deck, numCards: number): void {
-    for (let i = 0; i < numCards; i++) {
-      const card = deck.popCard();
-      if (card) {
-        this.addCard(card);
-      }
-    }
   }
 
   /**

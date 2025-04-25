@@ -12,7 +12,7 @@
 import { GameController } from './controller/GameController';
 
 function main() {
-  new GameController('hand1', 'hand2', 'result', 'dealButton');
+  const controller = new GameController('hand1', 'hand2', 'result', 'dealButton');
 }
 
 main();

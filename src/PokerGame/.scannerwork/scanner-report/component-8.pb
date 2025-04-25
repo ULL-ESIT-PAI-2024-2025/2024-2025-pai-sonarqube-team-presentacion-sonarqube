@@ -1,1 +1,0 @@
- 2tsXkhrmodel/hand.ts

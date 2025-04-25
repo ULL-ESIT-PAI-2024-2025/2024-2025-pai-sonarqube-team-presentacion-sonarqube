@@ -1,7 +1,7 @@
-organization=presentacion-pai
-projectKey=presentacion-pai_poker-game
+organization=ull-esit-pai-2024-2025
+projectKey=ull-esit-pai-2024-2025_poker-game
 serverUrl=https://sonarcloud.io
 serverVersion=8.0.0.62550
-dashboardUrl=https://sonarcloud.io/dashboard?id=presentacion-pai_poker-game
-ceTaskId=AZZpp3_ciAvPsSG_7-oE
-ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AZZpp3_ciAvPsSG_7-oE
+dashboardUrl=https://sonarcloud.io/dashboard?id=ull-esit-pai-2024-2025_poker-game
+ceTaskId=AZZqgSDAztyMmYN34tHB
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AZZqgSDAztyMmYN34tHB

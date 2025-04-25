@@ -76,8 +76,8 @@ export class PokerHand extends Hand {
   public compareWith(other: PokerHand): number {
     this.classify();
     other.classify();
-    const thisRank = PokerHand.HAND_RANKING.get(this.handRank) || 0;
-    const otherRank = PokerHand.HAND_RANKING.get(other.handRank) || 0;
+    const thisRank = PokerHand.HAND_RANKING.get(this.handRank) ?? 0;
+    const otherRank = PokerHand.HAND_RANKING.get(other.handRank) ?? 0;
     if (thisRank > otherRank) return 1;
     if (thisRank < otherRank) return -1;
     const thisSorted = [...this.cards].sort((a, b) => b.getRank() - a.getRank());
@@ -105,7 +105,7 @@ export class PokerHand extends Hand {
     const counts: Map<number, number> = new Map();
     for (const card of this.cards) {
       const rank = card.getRank();
-      counts.set(rank, (counts.get(rank) || 0) + 1);
+      counts.set(rank, (counts.get(rank) ?? 0) + 1);
     }
     for (const count of counts.values()) {
       if (count === n) {
@@ -133,7 +133,7 @@ export class PokerHand extends Hand {
     let pairCount = 0;
     for (const card of this.cards) {
       const rank = card.getRank();
-      counts.set(rank, (counts.get(rank) || 0) + 1);
+      counts.set(rank, (counts.get(rank) ?? 0) + 1);
     }
     for (const count of counts.values()) {
       if (count === 2) {
@@ -189,7 +189,7 @@ export class PokerHand extends Hand {
     const suitCounts: Map<number, number> = new Map();
     for (const card of this.cards) {
       const suit = card.getSuit();
-      suitCounts.set(suit, (suitCounts.get(suit) || 0) + 1);
+      suitCounts.set(suit, (suitCounts.get(suit) ?? 0) + 1);
     }
     for (const count of suitCounts.values()) {
       if (count >= 5) {
@@ -207,7 +207,7 @@ export class PokerHand extends Hand {
     const counts: Map<number, number> = new Map();
     for (const card of this.cards) {
       const rank = card.getRank();
-      counts.set(rank, (counts.get(rank) || 0) + 1);
+      counts.set(rank, (counts.get(rank) ?? 0) + 1);
     }
     let hasThree = false;
     let hasPair = false;
@@ -234,35 +234,67 @@ export class PokerHand extends Hand {
    * @returns {boolean} true si hay un straight flush.
    */
   public hasStraightFlush(): boolean {
-    const suitsMap: Map<number, Card[]> = new Map();
-    for (const card of this.cards) {
-      const suit = card.getSuit();
-      if (!suitsMap.has(suit)) {
-        suitsMap.set(suit, []);
-      }
-      suitsMap.get(suit)!.push(card);
-    }
+    const suitsMap = this.buildSuitMap();
+  
     for (const cards of suitsMap.values()) {
       if (cards.length < 5) continue;
-      const ranks = cards.map(c => c.getRank());
-      const uniqueRanks = [...new Set(ranks)].sort((a, b) => a - b);
+  
+      const uniqueRanks = this.getSortedUniqueRanks(cards);
       if (uniqueRanks.length < 5) continue;
-
-      for (let i = 0; i <= uniqueRanks.length - 5; i++) {
-        let isSequence = true;
-        for (let j = 0; j < 4; j++) {
-          if (uniqueRanks[i + j + 1] !== uniqueRanks[i + j] + 1) {
-            isSequence = false;
-            break;
-          }
-        }
-        if (isSequence) {
-          return true;
+  
+      if (this.hasFiveConsecutiveRanks(uniqueRanks)) {
+        return true;
+      }
+    }
+  
+    return false;
+  }
+  
+  /**
+   * Construye un mapa de palos y sus cartas correspondientes.
+   * @returns {Map<number, Card[]>} Mapa de cartas agrupadas por palo.
+   */
+  private buildSuitMap(): Map<number, Card[]> {
+    const map = new Map<number, Card[]>();
+    for (const card of this.cards) {
+      const suit = card.getSuit();
+      if (!map.has(suit)) {
+        map.set(suit, []);
+      }
+      map.get(suit)!.push(card);
+    }
+    return map;
+  }
+  
+  /**
+   * Devuelve los rangos únicos y ordenados de las cartas.
+   * @param cards - Array de cartas.
+   * @returns {number[]} Array de rangos únicos y ordenados.
+   */
+  private getSortedUniqueRanks(cards: Card[]): number[] {
+    const ranks = cards.map(c => c.getRank());
+    return [...new Set(ranks)].sort((a, b) => a - b);
+  }
+  
+  /**
+   * Comprueba si hay cinco cartas consecutivas en los rangos.
+   * @param ranks - Array de rangos únicos y ordenados.
+   * @returns {boolean} true si hay cinco cartas consecutivas, false en caso contrario.
+   */
+  private hasFiveConsecutiveRanks(ranks: number[]): boolean {
+    for (let i = 0; i <= ranks.length - 5; i++) {
+      let isSequence = true;
+      for (let j = 0; j < 4; j++) {
+        if (ranks[i + j + 1] !== ranks[i + j] + 1) {
+          isSequence = false;
+          break;
         }
       }
+      if (isSequence) return true;
     }
     return false;
   }
+  
 
   /**
    * Determina si la mano contiene un Royal Flush (10-J-Q-K-A del mismo palo).
@@ -286,6 +318,4 @@ export class PokerHand extends Hand {
     }
     return false;
   }
-
-  
 }
