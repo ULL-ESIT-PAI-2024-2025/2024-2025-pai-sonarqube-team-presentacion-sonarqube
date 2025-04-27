@@ -51,7 +51,7 @@ export enum Rank {
  * @property {string} image - Ruta de la imagen de la carta.
  */
 export class Card {
-  private suit: Suit;
+  private readonly suit: Suit;
   private rank: Rank;
   private image: string;
 

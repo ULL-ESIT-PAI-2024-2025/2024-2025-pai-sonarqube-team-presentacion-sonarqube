@@ -133,7 +133,7 @@ export class PokerHand extends Hand {
     let pairCount = 0;
     for (const card of this.cards) {
       const rank = card.getRank();
-      counts.set(rank, (counts.get(rank) || 0) + 1);
+      counts.set(rank, (counts.get(rank) ?? 0) + 1);
     }
     for (const count of counts.values()) {
       if (count === 2) {
@@ -189,7 +189,7 @@ export class PokerHand extends Hand {
     const suitCounts: Map<number, number> = new Map();
     for (const card of this.cards) {
       const suit = card.getSuit();
-      suitCounts.set(suit, (suitCounts.get(suit) || 0) + 1);
+      suitCounts.set(suit, (suitCounts.get(suit) ?? 0) + 1);
     }
     for (const count of suitCounts.values()) {
       if (count >= 5) {
@@ -207,7 +207,7 @@ export class PokerHand extends Hand {
     const counts: Map<number, number> = new Map();
     for (const card of this.cards) {
       const rank = card.getRank();
-      counts.set(rank, (counts.get(rank) || 0) + 1);
+      counts.set(rank, (counts.get(rank) ?? 0) + 1);
     }
     let hasThree = false;
     let hasPair = false;
@@ -263,6 +263,56 @@ export class PokerHand extends Hand {
     }
     return false;
   }
+
+  /**
+  public hasStraightFlush(): boolean {
+    const suitsMap = this.buildSuitMap();
+  
+    for (const cards of suitsMap.values()) {
+      if (cards.length < 5) continue;
+  
+      const uniqueRanks = this.getSortedUniqueRanks(cards);
+      if (uniqueRanks.length < 5) continue;
+  
+      if (this.hasFiveConsecutiveRanks(uniqueRanks)) {
+        return true;
+      }
+    }
+  
+    return false;
+  }
+  
+  private buildSuitMap(): Map<number, Card[]> {
+    const map = new Map<number, Card[]>();
+    for (const card of this.cards) {
+      const suit = card.getSuit();
+      if (!map.has(suit)) {
+        map.set(suit, []);
+      }
+      map.get(suit)!.push(card);
+    }
+    return map;
+  }
+  
+  private getSortedUniqueRanks(cards: Card[]): number[] {
+    const ranks = cards.map(c => c.getRank());
+    return [...new Set(ranks)].sort((a, b) => a - b);
+  }
+  
+  private hasFiveConsecutiveRanks(ranks: number[]): boolean {
+    for (let i = 0; i <= ranks.length - 5; i++) {
+      let isSequence = true;
+      for (let j = 0; j < 4; j++) {
+        if (ranks[i + j + 1] !== ranks[i + j] + 1) {
+          isSequence = false;
+          break;
+        }
+      }
+      if (isSequence) return true;
+    }
+    return false;
+  }
+  */
 
   /**
    * Determina si la mano contiene un Royal Flush (10-J-Q-K-A del mismo palo).
