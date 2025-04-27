@@ -26,5 +26,5 @@
 
 [Issues](https://docs.sonarsource.com/sonarqube-server/9.6/user-guide/issues/)
 
-[ESLint vs SonarQube]([[https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/TutorialAnimating_textures_in_WebGL](https://docs.sonarsource.com/sonarqube-server/latest/analyzing-source-code/languages/overview/)](https://stackshare.io/stackups/eslint-vs-sonarqube))
+[ESLint vs SonarQube](https://stackshare.io/stackups/eslint-vs-sonarqube)
 
