@@ -11,6 +11,9 @@
 
 import { GameController } from './controller/GameController';
 
+/**
+ * Función principal que inicializa el controlador del juego.
+ */
 function main() {
   const controller = new GameController('hand1', 'hand2', 'result', 'dealButton');
 }

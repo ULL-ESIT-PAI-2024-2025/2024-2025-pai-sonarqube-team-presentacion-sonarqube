@@ -86,6 +86,9 @@ export class Hand {
     return `${this.label}: ${cardStrings.join(', ')}`;
   }
 
+  /**
+   * Comprueba si la mano está vacía.
+   */
   public clear(): void {
     this.cards = [];
   }

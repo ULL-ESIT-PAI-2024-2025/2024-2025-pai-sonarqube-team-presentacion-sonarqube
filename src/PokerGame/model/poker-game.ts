@@ -42,6 +42,10 @@ export class PokerGame {
     this.hand2.classify();
   }
 
+  /**
+   * Reparte cartas a la mano 1 desde un mazo barajado.
+   * @param numberCards - Número de cartas a repartir.
+   */
   public dealHand1(numberCards: number): void {
     this.deck.recoverCardsFromHands([this.hand1]);
     this.deck.shuffle();
@@ -49,6 +53,10 @@ export class PokerGame {
     this.hand1.classify();
   }
   
+  /**
+   * Reparte cartas a la mano 2 desde un mazo barajado.
+   * @param numberCards - Número de cartas a repartir.
+   */
   public dealHand2(numberCards: number): void {
     this.deck.recoverCardsFromHands([this.hand2]);
     this.deck.shuffle();

@@ -60,6 +60,11 @@ export class Deck {
     return this.cards.pop();
   }
 
+  /**
+   * Mueve un número específico de cartas del mazo a una mano.
+   * @param hand - La mano a la que se moverán las cartas.
+   * @param count - Número de cartas a mover.
+   */
   public moveCardsToHand(hand: Hand, count: number): void {
     for (let i = 0; i < count; i++) {
       const card = this.popCard();
@@ -67,6 +72,10 @@ export class Deck {
     }
   }
 
+  /**
+   * Recupera las cartas de las manos y las devuelve al mazo.
+   * @param hands - Array de manos de las que recuperar las cartas.
+   */
   public recoverCardsFromHands(hands: Hand[]): void {
     for (const hand of hands) {
       const cards = hand.getCards();

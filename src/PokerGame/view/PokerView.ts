@@ -81,10 +81,18 @@ export class PokerView {
     }
   }
 
+  /**
+   * Devuelve el contenedor de la mano 1.
+   * @returns {HTMLElement} El contenedor de la mano 1.
+   */
   public getHand1Container(): HTMLElement {
     return this.hand1Container;
   }
   
+  /**
+   * Devuelve el contenedor de la mano 2.
+   * @returns {HTMLElement} El contenedor de la mano 2.
+   */
   public getHand2Container(): HTMLElement {
     return this.hand2Container;
   }

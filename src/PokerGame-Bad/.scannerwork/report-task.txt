@@ -1,0 +1,7 @@
+organization=ull-esit-pai-2024-2025
+projectKey=ull-esit-pai-2024-2025_Poker_Game_Bad
+serverUrl=https://sonarcloud.io
+serverVersion=8.0.0.62550
+dashboardUrl=https://sonarcloud.io/dashboard?id=ull-esit-pai-2024-2025_Poker_Game_Bad
+ceTaskId=AZZsNkknWuucuWe8w4An
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AZZsNkknWuucuWe8w4An

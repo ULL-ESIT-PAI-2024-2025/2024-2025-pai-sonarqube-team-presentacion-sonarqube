@@ -40,6 +40,9 @@ export class GameController {
     dealHand2Btn.addEventListener('click', () => this.handleDealHand2());
   }
 
+  /**
+   * Maneja el evento de repartir cartas a la mano 1.
+   */
   private handleDealHand1(): void {
     const input = document.getElementById('cardCount') as HTMLInputElement;
     const numberOfCards = Math.max(5, parseInt(input.value));
